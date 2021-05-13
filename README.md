@@ -2,6 +2,7 @@
 
 ## Overview
 
+- Senior Design Project at ISU.
 - Spatial Crowdsourcing (SC) is an increasing popular category of crowdsourcing in the era of mobile Internet and
   sharing economy, where tasks are spatio-temporal (belonging to both space and time or to space-time) and must be
   completed at a specific location and time. It is a matching problem that matches people with certain skills to those

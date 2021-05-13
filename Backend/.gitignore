@@ -1,0 +1,18 @@
+# Folders
+.gradle
+.idea
+.mvn
+build
+gradle
+target
+
+# Files
+.springBeans
+Backend.iml
+build.gradle
+gradlew
+gradlew.bat
+mvnw
+mvnw.cmd
+settings.gradle
+backend-sdmay21-51.iml

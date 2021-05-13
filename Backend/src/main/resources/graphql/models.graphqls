@@ -1,0 +1,155 @@
+schema {
+    query : Query
+    mutation: Mutation
+}
+
+type Query {
+    employers:[Employer]
+    employersByEmail (
+        email: String
+    ):[Employer]
+    workers:[Worker]
+    workersByEmail (
+        email: String
+    ):[Worker]
+    jobs:[Job]
+    jobsByEmployerId(
+        employerId: ID!
+    ):[Job]
+    jobsByEmployer(
+        employer: EmployerInput!
+    ):[Job]
+}
+
+type Employer {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+}
+
+input EmployerInput {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+}
+
+type Worker {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    skills: [Skill]
+    location: Location
+    currentJob: Job
+}
+
+type Location {
+    latitude: Float!
+    longitude: Float!
+}
+
+input LocationInput {
+    latitude: Float!
+    longitude: Float!
+}
+
+type Skill {
+    name: String!
+    rating: Float!
+}
+
+input SkillInput {
+    name: String!
+    rating: Float!
+}
+
+type Job {
+    id: ID!
+    employer: Employer
+    worker: Worker
+    location: Location
+    description: String
+    desiredSkills: [Skill]
+    status: String
+    estimatedTimeTillCompletion: Int
+}
+
+type Mutation {
+    createWorker (
+        firstName: String!
+        lastName: String!
+        email: String!
+        password: String!
+        skills: [SkillInput]
+        location: LocationInput
+    ): Worker!
+
+    updateWorker(
+        id: ID!
+        firstName: String
+        lastName: String
+        email: String
+        password: String
+        skills: [SkillInput]
+        location: LocationInput
+    ): Worker
+
+    deleteWorker (
+        id: ID!
+    ): Boolean
+
+    createEmployer (
+        firstName: String!
+        lastName: String!
+        email: String!
+        password: String!
+    ): Employer!
+
+    updateEmployer (
+        id: ID!
+        firstName: String
+        lastName: String
+        email: String
+        password: String
+    ): Employer!
+
+    deleteEmployer (
+        id: ID!
+    ): Boolean
+
+    createJob (
+        employerId: String!
+        workerId: String
+        location: LocationInput!
+        description: String!
+        desiredSkills: [SkillInput]
+    ): Job!
+
+    updateJob (
+        id: ID!
+        employerId: String
+        workerId: String
+        location: LocationInput
+        description: String
+        desiredSkills: [SkillInput]
+    ): Job!
+
+    deleteJob (
+        id: ID!
+    ): Boolean
+
+    acceptJob (
+        workerID: ID!
+        jobID: ID!
+    ): Worker
+
+    requestWorkersPrioritizeMinimumDistanceTraveled(
+        jobId: ID!
+    ): [Worker]
+
+    requestWorkersPrioritizeFastestTimeToCompleteJob (
+        jobId: ID!
+    ): [Worker]
+}

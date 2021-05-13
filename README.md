@@ -7,6 +7,13 @@
   completed at a specific location and time. It is a matching problem that matches people with certain skills to those
   that need those skills based on their location. While this may seem simple at first glance, as more variables are
   considered it becomes exponentially more complex.
+
+## Members
+- Logan Anderson
+- [Nicholas Heger](https://github.com/hegerni)
+- [Steven Sheets](https://github.com/paper-ssheets)
+- [James Volpe](https://github.com/Volpestyle)
+- [Jared Weiland](https://github.com/jbweiland)
   
 ## Technologies
 - [GitLab](https://about.gitlab.com/)
